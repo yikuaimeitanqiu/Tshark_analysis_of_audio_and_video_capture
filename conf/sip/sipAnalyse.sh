@@ -6,8 +6,8 @@
 DIR=`pwd`
 
 #清理输出文件夹
-/usr/bin/rm -rf $DIR/file/*.pcap
-/usr/bin/rm -rf $DIR/file/*.txt
+/usr/bin/rm -rf $DIR/report/*.pcap
+/usr/bin/rm -rf $DIR/report/*.txt
 
 
 #输入其中一侧的信令交互地址
@@ -56,7 +56,7 @@ printf "######### SIP #########
 信令端口： $PORT
 主叫号码： $MASTERNUM
 被叫号码： $SALVENUM
-" > $DIR/file/sipreport_old.txt
+" > $DIR/report/sipreport_old.txt
 
 
 #通过信令交互地址和端口进行分析
@@ -69,14 +69,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt 
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -91,14 +91,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -113,14 +113,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 (udp.port==$PORT)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -136,14 +136,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt 
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt 
 
 
 printf "\n通过显示过滤器规则：
 (sip.from.user == $MASTERNUM) and (sip.to.user == $SALVENUM)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -158,14 +158,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 (sip.from.user == $MASTERNUM)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -180,14 +180,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 (sip.to.user == $SALVENUM)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -203,14 +203,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt 
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT) and (sip.from.user == $MASTERNUM) and (sip.to.user == $SALVENUM)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 
@@ -226,14 +226,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT) and (sip.from.user == $MASTERNUM)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -249,14 +249,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT) and (sip.to.user == $SALVENUM)
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
@@ -272,22 +272,22 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/sipInitial.pcap \
-1> $DIR/file/sip.txt
+-w $DIR/report/sipInitial.pcap \
+1> $DIR/report/sip.txt
 
 
 printf "\n通过显示过滤器规则：
 sip
 过滤出的sipInitial.pcap数据报文
-" >> $DIR/file/sipreport_old.txt
+" >> $DIR/report/sipreport_old.txt
 
 fi
 }
 
 
 #创建空文件等输出
-touch $DIR/file/sip.txt
-cat /dev/null > $DIR/file/sip.txt
+touch $DIR/report/sip.txt
+cat /dev/null > $DIR/report/sip.txt
 
 #判断上传文件格式后缀是相符,并判断是否为一个文件，是则执行。
 CAP=`ls -l $DIR/pcap | grep -E '*.cap$' | wc -l`

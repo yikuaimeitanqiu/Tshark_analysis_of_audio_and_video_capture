@@ -6,8 +6,8 @@
 DIR=`pwd`
 
 #清理输出文件夹
-/usr/bin/rm -rf $DIR/file/*.pcap
-/usr/bin/rm -rf $DIR/file/*.txt
+/usr/bin/rm -rf $DIR/report/*.pcap
+/usr/bin/rm -rf $DIR/report/*.txt
 
 
 #输入其中一侧的信令交互地址
@@ -43,7 +43,7 @@ printf "######### GB28181 #########
 信令端口： $PORT
 上级国标： $MASTERNUM
 下级国标： $SALVENUM
-" > $DIR/file/gb28181report_old.txt
+" > $DIR/report/gb28181report_old.txt
 }
 
 #通过信令交互地址和端口进行分析
@@ -56,14 +56,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -78,14 +78,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -100,14 +100,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (udp.port==$PORT)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -122,14 +122,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (sip.from.user == $MASTERNUM) and (sip.to.user == $SALVENUM)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -144,14 +144,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (sip.from.user == $MASTERNUM)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -166,14 +166,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (sip.to.user == $SALVENUM)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -188,14 +188,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT) and (sip.from.user == $MASTERNUM) and (sip.to.user == $SALVENUM)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -210,14 +210,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT) and (sip.from.user == $MASTERNUM)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -232,14 +232,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 (ip.addr==$ADDR and udp.port==$PORT) and (sip.to.user == $SALVENUM)
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -254,14 +254,14 @@ tshark -r $DIR/pcap/* \
 -e frame.time_epoch -e ip.src -e udp.srcport -e ip.dst  -e udp.dstport -e frame.len \
 -e sip -e sip.from.addr -e sip.to.addr -e sip.Call-ID \
 -e sdp -e sdp.connection_info -e sdp.media -e sdp.media_attr \
--w $DIR/file/gb28181Initial.pcap \
-1> $DIR/file/gb28181.txt 
+-w $DIR/report/gb28181Initial.pcap \
+1> $DIR/report/gb28181.txt 
 
 
 printf "\n通过显示过滤器规则：
 sip
 过滤出的gb28181Initial.pcap数据报文
-" >> $DIR/file/gb28181report_old.txt
+" >> $DIR/report/gb28181report_old.txt
 
 fi
 }
@@ -274,7 +274,7 @@ PCAPNG_NUM=`ls -l $DIR/pcap | grep -E '*\.pcapng$' | wc -l`
 if [ "$PCAP_NUM" == 1 ]; then
 	if [ "$PCAPNG_NUM" == "0" -a "$CAP_NUM" == "0" ]; then
 		Print_Info
-		touch $DIR/file/init_test.txt
+		touch $DIR/report/init_test.txt
 		printf "正在处理中，请耐心等待。\n"	
 		ADDR_PORT
 		ADDR_Filter
@@ -295,7 +295,7 @@ fi
 if [ "$PCAPNG_NUM" == 1 ]; then
 	if [ "$PCAP_NUM" == 0 -a "$CAP_NUM" == 0 ]; then
 		Print_Info
-		touch $DIR/file/init_test.txt
+		touch $DIR/report/init_test.txt
 		printf "正在处理中，请耐心等待。\n"	
 		ADDR_PORT
 		ADDR_Filter
@@ -316,7 +316,7 @@ fi
 if [ "$CAP_NUM" == 1 ]; then
 	if [ "$PCAP_NUM" == 0 -a "$PCAPNG_NUM" == 0 ]; then
 		Print_Info
-		touch $DIR/file/init_test.txt
+		touch $DIR/report/init_test.txt
 		printf "正在处理中，请耐心等待。\n"	
 		ADDR_PORT
 		ADDR_Filter

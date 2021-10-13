@@ -6,42 +6,42 @@
 DIR=`pwd`
 
 #创建输出报告文件
-touch $DIR/file/sipreport.txt
-cat /dev/null > $DIR/file/sipreport.txt
+touch $DIR/report/sipreport.txt
+cat /dev/null > $DIR/report/sipreport.txt
 
 
 #打印输入的参数
-cat $DIR/file/sipreport_old.txt > $DIR/file/sipreport.txt
-/usr/bin/rm -rf $DIR/file/sipreport_old.txt
+cat $DIR/report/sipreport_old.txt > $DIR/report/sipreport.txt
+/usr/bin/rm -rf $DIR/report/sipreport_old.txt
 
 
 #打印二次分析的显示过滤器信息
-Filter=`awk BEGIN{RS=EOF}'{gsub(/\n/," ");print}' $DIR/file/Call_ID_filter.txt $DIR/file/rtp_filter.txt $DIR/file/rtcp_filter.txt`
+Filter=`awk BEGIN{RS=EOF}'{gsub(/\n/," ");print}' $DIR/report/Call_ID_filter.txt $DIR/report/rtp_filter.txt $DIR/report/rtcp_filter.txt`
 
 printf "\n通过显示过滤器规则：
 $Filter
 过滤出 sipderiveall.pcap 数据报文
-" >> $DIR/file/sipreport.txt
-/usr/bin/rm -rf $DIR/file/Call_ID_filter.txt
-/usr/bin/rm -rf $DIR/file/rtp_filter.txt
-/usr/bin/rm -rf $DIR/file/rtcp_filter.txt
+" >> $DIR/report/sipreport.txt
+/usr/bin/rm -rf $DIR/report/Call_ID_filter.txt
+/usr/bin/rm -rf $DIR/report/rtp_filter.txt
+/usr/bin/rm -rf $DIR/report/rtcp_filter.txt
 
 
 #打印会话产生的Call-ID
-CALL_ID_LINE=`awk 'END{print NR}' $DIR/file/Call_ID.txt`
-printf "\n根据 sipderiveall.pcap 数据报文中分析出总共生成 $CALL_ID_LINE 次 Call-ID\n" >> $DIR/file/sipreport.txt
-cat $DIR/file/Call_ID.txt >> $DIR/file/sipreport.txt
-/usr/bin/rm -rf $DIR/file/Call_ID.txt
+CALL_ID_LINE=`awk 'END{print NR}' $DIR/report/Call_ID.txt`
+printf "\n根据 sipderiveall.pcap 数据报文中分析出总共生成 $CALL_ID_LINE 次 Call-ID\n" >> $DIR/report/sipreport.txt
+cat $DIR/report/Call_ID.txt >> $DIR/report/sipreport.txt
+/usr/bin/rm -rf $DIR/report/Call_ID.txt
 
 #打印会话产生的RTP端口
-printf "\n\n根据 sipderiveall.pcap 数据报文中分析出RTP媒体端口信息： \n" >> $DIR/file/sipreport.txt
-cat $DIR/file/rtp.txt >> $DIR/file/sipreport.txt
-/usr/bin/rm -rf $DIR/file/rtp.txt
+printf "\n\n根据 sipderiveall.pcap 数据报文中分析出RTP媒体端口信息： \n" >> $DIR/report/sipreport.txt
+cat $DIR/report/rtp.txt >> $DIR/report/sipreport.txt
+/usr/bin/rm -rf $DIR/report/rtp.txt
 
 #打印会话产生的RTCP端口
-printf "\n\n根据 sipderiveall.pcap 数据报文中分析出RTCP媒体端口信息： \n" >> $DIR/file/sipreport.txt
-cat $DIR/file/rtcp.txt >> $DIR/file/sipreport.txt
-/usr/bin/rm -rf $DIR/file/rtcp.txt
+printf "\n\n根据 sipderiveall.pcap 数据报文中分析出RTCP媒体端口信息： \n" >> $DIR/report/sipreport.txt
+cat $DIR/report/rtcp.txt >> $DIR/report/sipreport.txt
+/usr/bin/rm -rf $DIR/report/rtcp.txt
 
 
 
