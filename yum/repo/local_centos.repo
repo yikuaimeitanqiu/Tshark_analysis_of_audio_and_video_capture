@@ -1,0 +1,7 @@
+
+[local_centos]
+name=local_centos
+enable=1
+gpgcheck=0
+baseurl=file:///home/tshark/yum/software
+
