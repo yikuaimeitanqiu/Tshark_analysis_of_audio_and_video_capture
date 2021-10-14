@@ -50,9 +50,9 @@ tshark
 #消息头  
 -e sip.Call-ID  #消息的唯一标识符  
 -e sip.from.addr  #发起者  
-	-e sip.from.user #发起者用户  
-	-e sip.from.host #发起者地址  
-	-e sip.from.port #发起者端口  
+        -e sip.from.user #发起者用户  
+        -e sip.from.host #发起者地址  
+        -e sip.from.port #发起者端口  
 -e sip.to.addr    #接收者  
 	-e sip.to.user  #接收者用户  
 	-e sip.to.host  #接收者地址  
