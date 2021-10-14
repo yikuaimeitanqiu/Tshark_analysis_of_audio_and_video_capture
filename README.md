@@ -65,8 +65,8 @@ tshark
 	-e sip.contact.port #实际连接端口  
 -e sip.Content-Type #消息体的媒体类型   
 #消息体   
+-e sdp  #sdp协议     
 -e sdp.version  #SDP版本，默认为0   
--e sdp   
 -e sdp.session_name # 会话名字  
 -e sdp.connection_info # 媒体连接地址 <网络类型><地址类型><链接地址>    
 	-e sdp.connection_info.address # 媒体连接地址   
