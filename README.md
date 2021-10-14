@@ -68,14 +68,14 @@ tshark
 -e sdp.version  #SDP版本，默认为0   
 -e sdp   
 -e sdp.session_name # 会话名字  
--e sdp.connection_info # 媒体连接地址 <网络类型><地址类型><链接地址>   
-	-e sdp.connection_info.address # 媒体连接地址 
--e sdp.time  #表示会话起始时间与结束时间，常见为 0 0  不受限制
--e sdp.media #媒体描述 <媒体类型><端口><协议><格式类型>
-	-e sdp.media.media #媒体描述 <媒体类型>
-	-e sdp.media.port  #媒体描述 <端口>
-	-e sdp.media.proto #媒体描述 <协议>
-	-e sdp.media.format #媒体描述 <格式类型>
--e sdp.media_attr  #媒体属性
-
+-e sdp.connection_info # 媒体连接地址 <网络类型><地址类型><链接地址>    
+	-e sdp.connection_info.address # 媒体连接地址   
+-e sdp.time  #表示会话起始时间与结束时间，常见为 0 0  不受限制   
+-e sdp.media #媒体描述 <媒体类型><端口><协议><格式类型>  
+	-e sdp.media.media #媒体描述 <媒体类型>  
+	-e sdp.media.port  #媒体描述 <端口>  
+	-e sdp.media.proto #媒体描述 <协议>   
+	-e sdp.media.format #媒体描述 <格式类型>  
+-e sdp.media_attr  #媒体属性  
+  
 
