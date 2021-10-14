@@ -30,7 +30,7 @@ case $Number in
 	bash $DIR/conf/sip/sipDeriveAll.sh
 	bash $DIR/conf/sip/sipReport.sh
 	bash $DIR/conf/sip/sipInvite.sh
-	#[ $? == 126 ] && printf "已完成分析处理，请查看 $DIR/file 下输出文件。\n" || printf "未能开始分析，已退出。\n"
+	#[ $? == 126 ] && printf "已完成分析处理，请查看 $DIR/report 下输出文件。\n" || printf "未能开始分析，已退出。\n"
 	/usr/bin/rm -rf $DIR/report/sip.txt
 	;;
 	"2")
@@ -40,7 +40,7 @@ case $Number in
 	bash $DIR/conf/gb28181/gb28181DeriveAll.sh
 	bash $DIR/conf/gb28181/gb28181Report.sh
 	bash $DIR/conf/gb28181/gb28181Invite.sh
-	[[ `ls -l $DIR/report/ | grep init_test.txt` ]] && printf "已完成分析处理，请查看 $DIR/file 下输出文件。\n\n" && /usr/bin/rm -rf $DIR/report/init_test.txt
+	[[ `ls -l $DIR/report/ | grep init_test.txt` ]] && printf "已完成分析处理，请查看 $DIR/report 下输出文件。\n\n" && /usr/bin/rm -rf $DIR/report/init_test.txt
 	#/usr/bin/rm -rf $DIR/report/gb28181.txt
 	;;
 	"3")
