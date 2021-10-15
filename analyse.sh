@@ -6,8 +6,7 @@
 DIR=`pwd`
 
 #判断无tshark分析工具则安装
-[[ -z `rpm -qa | grep wireshark` ]] && $DIR/yum/installSoftware.sh
-
+[ ! -e /usr/local/bin/tshark ] && $DIR/yum/installSoftware.sh
 
 #菜单
 MENU () {
