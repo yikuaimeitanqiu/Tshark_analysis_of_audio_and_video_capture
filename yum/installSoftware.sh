@@ -42,5 +42,5 @@ make 1>/dev/null; make install 1>/dev/null; popd; /usr/bin/rm -rf ${WiresharkNam
 
 Yum_End
 
-printf "wireshark分析工具已完成安装。\n"
+printf "wireshark分析工具已完成安装。\n"; tshark -v | head -n 1
 
