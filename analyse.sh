@@ -8,8 +8,6 @@ DIR=`pwd`
 #判断无tshark分析工具则安装
 [[ -z `rpm -qa | grep wireshark` ]] && $DIR/yum/installSoftware.sh
 
-#判断无lrzsz上传下载文件工具则安装
-[[ -z `rpm -qa | grep lrzsz` ]] && $DIR/yum/installSoftware.sh
 
 #菜单
 MENU () {
