@@ -1,8 +1,8 @@
 # Tshark_analysis_of_audio_and_video_capture
-通过tshark 再结合linux shell 完成对 sip gb28181 抓包分析 
-当前只运行在linux下  
-
-
+通过tshark 再结合linux shell 完成对 sip gb28181 抓包分析   
+  
+正在建设项目中，运行在linux下    
+   
 
 tshark 分析参考  
 
